@@ -29,7 +29,7 @@ docker compose up
 3. Postman (тестування API)
 
 Колекція Postman доступна за посиланням (запити):
-https://kronbergdron-7522133.postman.co/workspace/relffi's-Workspace~b07e820d-7bb5-48e4-8c37-9756760c32ed/request/48738738-f33dc1a9-6577-45a1-a438-1ba75b3d16a1?action=share&creator=48738738&ctx=documentation&active-environment=48738738-33ceb7a1-c337-4189-94f3-608494ffc990
+https://kronbergdron-7522133.postman.co/workspace/relffi's-Workspace~b07e820d-7bb5-48e4-8c37-9756760c32ed/collection/48738738-a31372ac-e7a1-4ad8-aa5b-10d74f1c8927?action=share&source=copy-link&creator=48738738
 
 Усі запити в колекції розкладені в порядку виконання (ну я так думаю . . .).
 УВАГА: після логіну ви отримаєте JWT — 
