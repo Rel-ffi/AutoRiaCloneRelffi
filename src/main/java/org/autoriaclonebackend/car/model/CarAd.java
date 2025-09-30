@@ -68,4 +68,7 @@ public class CarAd {
     @CollectionTable(name = "car_ad_images", joinColumns = @JoinColumn(name = "car_ad_id"))
     @Column(name = "image_path")
     private List<String> images = new ArrayList<>();
+
+    @OneToMany(mappedBy = "carAd", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CarAdView> views = new ArrayList<>();
 }
