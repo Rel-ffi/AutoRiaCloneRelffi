@@ -1,0 +1,866 @@
+{
+	"info": {
+		"_postman_id": "a31372ac-e7a1-4ad8-aa5b-10d74f1c8927",
+		"name": "autoriaclonecontroltestrelffi",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48738738",
+		"_collection_link": "https://kronbergdron-7522133.postman.co/workspace/relffi's-Workspace~b07e820d-7bb5-48e4-8c37-9756760c32ed/collection/48738738-a31372ac-e7a1-4ad8-aa5b-10d74f1c8927?action=share&source=collection_link&creator=48738738"
+	},
+	"item": [
+		{
+			"name": "register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"123456\",\r\n  \"fullName\": \"Test user\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create car with token (seller)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1f09e347-3e65-4bd0-85e6-7a3ac87795d6",
+								"postman-cloud:///1f09e347-3e43-48f0-a7c0-4171405b0d58",
+								"postman-cloud:///1f09e347-3e96-4910-be13-381006d1862e"
+							]
+						},
+						{
+							"key": "brand",
+							"value": "BMW",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "X5",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "20000",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "USD",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Норм",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "Kyiv",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create 2 ad car without premium (seller)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1f09e347-d386-4020-b8d6-b107a16ffc5e",
+								"postman-cloud:///1f09e347-d449-4520-ba35-8ae18e05c33a",
+								"postman-cloud:///1f09e347-d3a8-4300-8f9d-a4137b4e232c"
+							]
+						},
+						{
+							"key": "brand",
+							"value": "Toyota",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "Camry",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "14800",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "USD",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": " Куплено в Україні у Офіційного Дилера Toyota.\nВстановлено дороге ГБО.\nНе бита, не фарбована.\n Технічно обслужена, розхідники тільки оригінали\nСкло все рідні, включаючи \nСалон чистий та доглянутий",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "Lviv",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Public get all cars ads",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/public",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"public"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Public get one car by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/public/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"public",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit car with token (seller)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzU5MTg4ODI4LCJleHAiOjE3NTkyMjQ4Mjh9.S51fVlAj5lTE4xASTytKfGELNLcOJwrvyF-94oFrLHA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"price\": \"21000\",\r\n  \"currency\": \"USD\",\r\n  \"description\": \"Добавлено новое описание\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/edit/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"edit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new view to advert. (public)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/public/stats/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"public",
+						"stats",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get premium(seller)(#)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzU5MjQ2ODY1LCJleHAiOjE3NTkyODI4NjV9.v0uG0YUmC4UbF_fwqMDyq1xSHmiX0kDtU0T7BkR9WNs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/premium",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"premium"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get stats(premium)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzU5MTg4ODI4LCJleHAiOjE3NTkyMjQ4Mjh9.S51fVlAj5lTE4xASTytKfGELNLcOJwrvyF-94oFrLHA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"123456\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/stats/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"stats",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new car (premium)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzU5MTg4ODI4LCJleHAiOjE3NTkyMjQ4Mjh9.S51fVlAj5lTE4xASTytKfGELNLcOJwrvyF-94oFrLHA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1f09e34a-0889-4900-9f84-cf454e6de407",
+								"postman-cloud:///1f09e34a-082c-4ca0-9932-6589938f095b",
+								"postman-cloud:///1f09e34a-0893-4540-99b9-6352e849daf0"
+							]
+						},
+						{
+							"key": "brand",
+							"value": "Mazda",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "Miata MX-5",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "32900",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "USD",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Норм, не битая не крашенная",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "Lutsk",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit car with token (seller) Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzU5MjQ2ODY1LCJleHAiOjE3NTkyODI4NjV9.v0uG0YUmC4UbF_fwqMDyq1xSHmiX0kDtU0T7BkR9WNs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"price\": \"21000\",\r\n  \"currency\": \"USD\",\r\n  \"description\": \"Добавлено новое описание\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/edit/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"edit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new car with badwords (premium or not idk)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzU5MTg4ODI4LCJleHAiOjE3NTkyMjQ4Mjh9.S51fVlAj5lTE4xASTytKfGELNLcOJwrvyF-94oFrLHA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1f09e34a-9841-48e0-ada0-859aea49d096",
+								"postman-cloud:///1f09e34a-9894-4900-961d-4bbbec4c8eba"
+							]
+						},
+						{
+							"key": "brand",
+							"value": "Mazda",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "Miata MX-5 1997",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "21600",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "USD",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "fuck",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "Lviv",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all prices for advert privat api (public)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/public/1/prices",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"public",
+						"1",
+						"prices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "brands and models flow (public)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/public/brandsflow",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"public",
+						"brandsflow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login (admin)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"testadmin@gmail.com\",\r\n  \"password\": \"meow\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register manager (admin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzU5MjQ4ODc4LCJleHAiOjE3NTkyODQ4Nzh9.k1DCl00oyzHXqOXOr6J881Yk6gGF-q29FHcrVe3LA1c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test-manager@gmail.com\",\r\n  \"password\": \"1234manager\",\r\n  \"fullName\": \"Test manager\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/register/admin",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"register",
+						"admin"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "login (manager)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test-manager@gmail.com\",\r\n  \"password\": \"1234manager\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all inactive or pending car ads (manager-admin)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0bWFuYWdlckBtYW5hZ2VyLmNvbSIsImlhdCI6MTc1OTE5MDcyNSwiZXhwIjoxNzU5MjI2NzI1fQ.tifUJuZrXBflmUM1TxlGDe2_nw6SuFBoofp9646iWqQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/manager",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"manager"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change status to active (manager-admin)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0bWFuYWdlckBtYW5hZ2VyLmNvbSIsImlhdCI6MTc1OTE5MjcyNywiZXhwIjoxNzU5MjI4NzI3fQ.IU8vHQagvncBQPOVMi7l_1qgFCJl3YHNdE68AQjIm_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/manager/carAd/5",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"manager",
+						"carAd",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete car by id (manager-admin)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzU5MDkxNDY0LCJleHAiOjE3NTkxMjc0NjR9.YVCx4xDSk-8fJ30zcO0j2XDOfKGZgIYRImc1gtKeQ0g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/cars/delete/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
